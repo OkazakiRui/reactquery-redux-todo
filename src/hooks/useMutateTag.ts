@@ -2,7 +2,7 @@ import { Tag } from 'types/types'
 import { useMutation, useQueryClient } from 'react-query'
 import { useAppDispatch } from 'app/hooks'
 import axios from 'axios'
-import { resetEditedTask } from 'slices/todoSlice'
+import { resetEditedTag } from 'slices/todoSlice'
 
 export const useMutateTag = () => {
   const dispatch = useAppDispatch()
