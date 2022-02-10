@@ -24,4 +24,26 @@ export const useMutateTask = () => {
       },
     }
   )
+
+  const updateTaskMutation = useMutation(
+    (task: EditTask) =>
+      axios.put<Task>(
+        `${process.env.REACT_APP_REST_URL}/tasks/${task.id}/`,
+        task
+      ),
+    {
+      onSuccess: (res, variables) => {
+        const previousTodos = queryClient.getQueryData<Task[]>('tasks')
+        if (previousTodos) {
+          queryClient.setQueryData<Task[]>(
+            'tasks',
+            previousTodos.map((task) =>
+              task.id === variables.id ? res.data : task
+            )
+          )
+        }
+        dispatch(resetEditedTask())
+      },
+    }
+  )
 }
