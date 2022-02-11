@@ -12,7 +12,7 @@ export const TaskList: VFC = () => {
   return (
     <ul>
       {data?.map((task) => (
-        <TaskItem task={task} />
+        <TaskItem task={task} key={task.id} />
       ))}
     </ul>
   )

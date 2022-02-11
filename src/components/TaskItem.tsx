@@ -27,7 +27,7 @@ export const TaskItem: VFC<Props> = ({ task }) => {
   if (deleteTaskMutation.isLoading) return <div>deleting...</div>
 
   return (
-    <li className="my-3" key={task.id}>
+    <li className="my-3">
       <span className="font-bold">{task.title}</span>
       <span>
         {' : '}
