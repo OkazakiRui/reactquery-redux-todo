@@ -1,3 +1,4 @@
+import { MainTag } from 'components/MainTag'
 import { MainTask } from 'components/MainTask'
 import { VFC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
@@ -21,6 +22,9 @@ const App: VFC = () => {
           <Switch>
             <Route exact path="/">
               <MainTask />
+            </Route>
+            <Route exact path="/tags">
+              <MainTag />
             </Route>
           </Switch>
         </BrowserRouter>
