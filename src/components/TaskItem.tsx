@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'app/hooks'
 import { useMutateTask } from 'hooks/useMutateTask'
-import { VFC } from 'react'
+import { memo, VFC } from 'react'
 import { Task } from 'types/types'
 import { PencilAltIcon, TrashIcon } from '@heroicons/react/solid'
 import { setEditedTask } from 'slices/todoSlice'
@@ -8,7 +8,7 @@ import { setEditedTask } from 'slices/todoSlice'
 type Props = {
   task: Task
 }
-export const TaskItem: VFC<Props> = ({ task }) => {
+export const TaskItem: VFC<Props> = memo(({ task }) => {
   console.log('TaskItem がレンダリングされた')
 
   const { deleteTaskMutation } = useMutateTask()
@@ -45,4 +45,4 @@ export const TaskItem: VFC<Props> = ({ task }) => {
       </div>
     </li>
   )
-}
+})
