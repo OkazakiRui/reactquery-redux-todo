@@ -1,10 +1,10 @@
 import { useAppDispatch, useAppSelector } from 'app/hooks'
 import { useMutateTask } from 'hooks/useMutateTask'
 import { useQueryTags } from 'hooks/useQueryTags'
-import { ChangeEvent, FormEvent, VFC } from 'react'
+import { ChangeEvent, FormEvent, memo, VFC } from 'react'
 import { selectTask, setEditedTask } from 'slices/todoSlice'
 
-export const TaskEdit: VFC = () => {
+export const TaskEdit: VFC = memo(() => {
   console.log('TaskEdit がレンダリングされた')
 
   const editedTask = useAppSelector(selectTask)
@@ -59,4 +59,4 @@ export const TaskEdit: VFC = () => {
       </select>
     </div>
   )
-}
+})

@@ -1,8 +1,8 @@
 import { useQueryTasks } from 'hooks/useQueryTasks'
-import { VFC } from 'react'
+import { memo, VFC } from 'react'
 import { TaskItem } from './TaskItem'
 
-export const TaskList: VFC = () => {
+export const TaskList: VFC = memo(() => {
   console.log('TaskList がレンダリングされた')
 
   const { status, data } = useQueryTasks()
@@ -16,4 +16,4 @@ export const TaskList: VFC = () => {
       ))}
     </ul>
   )
-}
+})
